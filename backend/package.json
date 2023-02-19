@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "La parte de la api",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js",
+    "desarrollo": "nodemon main.js"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "joi",
+    "datos",
+    "usuarios"
+  ],
+  "author": "Pablo",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@hapi/boom": "^10.0.1",
+    "cors": "^2.8.5",
+    "joi": "^17.7.1"
+  }
+}
