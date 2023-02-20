@@ -9,8 +9,11 @@ class BuscarServicio{
         if(indice===-1){
             throw boom.notAcceptable('Contraseña y/o usuario incorrecto');
         }
-        let hola = this.usuarios[indice];
-        delete hola.contra
+       let hola = {
+            nombre:this.usuarios[indice].nombre,
+            superUsuario:this.usuarios[indice].superUsuario,
+            usuario:this.usuarios[indice].usuario
+        }
         return hola;
     }
 }

@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 import { useCont } from "../contexto";
 import { Cabeza } from "./cabeza";
 import { agregar, eliminar } from "./mandar";
-
+import "./index.css";
 function Listas(){
     const {datos, busc, setBusc, entrar, objeto, error}=useCont();
     const [escribir, setEscribir]=React.useState('');
@@ -25,21 +25,22 @@ function Listas(){
                     value={escribir}
                     onChange={(e)=>setEscribir(e.target.value)}
                     />
-                    <div className="area-boton">
-                        <button type="submit">Enviar</button>
-                    </div>
                 </div>
+                <div className="area-boton">
+                        <button type="submit" className="boton">Enviar</button>
+                    </div>
              </form>
              )}
              <div className="contenedor contenedor2">
                 <div className="buscar">
                     <p>Buscador</p>
-                    <input className="buscar" 
-                    placeholder="Escribir" 
+                    <input className="buscar-entrada" 
+                    placeholder="Escribir..." 
                     value={busc} 
                     onChange={(e)=>setBusc(e.target.value)}/>
                 </div>
-                {error.estado?<p>No se encontraron elementos</p>:datos.map(elem=>(
+               <div className="mira">
+               {error.estado?<p>No se encontraron elementos</p>:datos.map(elem=>(
                     <Fila 
                     key={elem.id}
                     lista={elem.lista}
@@ -47,6 +48,7 @@ function Listas(){
                     objeto={objeto}
                     />
                 ))}
+               </div>
              </div>
             </>
             );
@@ -58,8 +60,8 @@ function Listas(){
 function Fila({lista, num, objeto}){
     
     return(
-        <div className="fila">
-            <p>{num}.- {lista}</p>
+        <div className="fila-todo">
+            <p className={!objeto.usuario?'poner':'quitar'}>{num}.- {lista}</p>
             {objeto.superUsuario && <button className="boton" onClick={()=>eliminar(num)}>X</button>}
         </div>
     );

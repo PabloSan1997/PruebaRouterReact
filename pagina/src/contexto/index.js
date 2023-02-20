@@ -3,7 +3,7 @@ import { useGuardar } from "./guardar";
 
 const Contexto = React.createContext();
 
-function useLeer(entrar) {
+function useLeer(entrar, callback) {
   const [datoss, setDatoss] = React.useState([]);
   const [error, setError]=React.useState({estado:false, message:""});
   React.useEffect(() => {
@@ -21,6 +21,7 @@ function useLeer(entrar) {
           setError({message:"", estado:false});
         } catch (error) {
           setError({message:error.message, estado:true});
+          callback({usuario:false, superUsuario:false, nombre:""});
         }
       })();
     }
@@ -34,8 +35,7 @@ function Provedor({ children }) {
   const [nose, setNose] = React.useState(false);
   const [entrada1, setEtrada1] = React.useState("");
   const [entrada2, setEtrada2] = React.useState("");
-  const { datoss, error } = useLeer(entrar);
-  console.log(objeto);
+  const { datoss, error } = useLeer(entrar, guardarv);
   let datos = [];
   if (busc === "") {
     datos = datoss;
@@ -60,6 +60,7 @@ function Provedor({ children }) {
               contra: entrada2
             }),
           };
+          console.log(hola);
           const enviar = await fetch(
             "http://localhost:3333/api/v1/validar",
             hola
@@ -74,8 +75,9 @@ function Provedor({ children }) {
           guardarv(mensaje);
         } catch (error) {
           alert(error);
-          setObjeto({ usuario: false });
+          setObjeto({usuario:false, superUsuario:false, nombre:""});
           setNose(false);
+          guardarv({usuario:false, superUsuario:false, nombre:""});
         }
       })();
     }
