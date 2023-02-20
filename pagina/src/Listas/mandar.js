@@ -15,5 +15,17 @@ async function agregar(cuerpo){
         alert(error);
     }
 }
-
-export{agregar}
+async function eliminar(num){
+    try {
+        let objeto={
+            method:'DELETE',
+            headers:{ "Content-Type": "application/json" }
+        }
+        const enviar = await fetch(`http://localhost:3333/api/v1/informacion/${num}`, objeto);
+        const mensaje = await enviar.json();
+        window.location.reload();
+    } catch (error) {
+        
+    }
+}
+export{agregar, eliminar}

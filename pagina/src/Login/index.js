@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 import { useCont } from "../contexto";
-
+import "./index.css"
 
 
 function Loguear() {
@@ -17,13 +17,13 @@ function Loguear() {
           <h1>Mi Lista</h1>
         </header>
         <div className="contenedor contenedor1">
-          <div className="caja">
-            <p className="texto">
+          <div className="caja derecha">
+            <h2 className="texto">
               Pagina para que sepas las listas que hay que hacer
-            </p>
+            </h2>
             <p>Así que aprendetelas bien</p>
           </div>
-          <div className="caja">
+          <div className="caja otra">
             <h2 className="titulos">Entra a ver</h2>
             <form onSubmit={eventoSumbint}>
               <div className="fila">

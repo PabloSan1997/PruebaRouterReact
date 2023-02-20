@@ -1,0 +1,92 @@
+.titulo{
+    width: 100%;
+    height: 70px;
+    background: rgb(2, 2, 39);
+    display: flex;
+}
+.titulo h1{
+    font-family: arial;
+    color: white;
+    font-size: 1.9rem;
+    margin: auto auto auto 2%;
+    width: fit-content;
+}
+.contenedor1{
+    display: flex;
+    width: 80%;
+    margin:10vh auto auto auto;
+    height: 65vh;
+}
+.contenedor1 .caja{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.contenedor1 .caja.derecha{
+    border-right: 2px solid rgb(6, 6, 68);
+}
+.contenedor1 .caja h2{
+    color: rgb(5, 5, 58);
+    font-family: arial;
+}
+.contenedor1 .caja h2.texto{
+    margin: 5% auto 0 auto;
+    font-size: 1.8rem;
+    width: 90%;
+    border-bottom: 2px solid blue;
+}
+.contenedor1 .caja p{
+    margin: 5px auto auto 5%;
+    font-size: 1.5rem;
+}
+
+.contenedor1 .caja.otra h2{
+    margin: 5% auto 0 2%;
+}
+.contenedor1 .caja.otra form{
+    margin: 5% auto auto auto;
+    width: 80%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+}
+.contenedor1 .caja.otra form .fila{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+}
+.contenedor1 .caja.otra form .fila label{
+    color: rgb(3, 3, 46);
+    font-weight: bold;
+    font-family: arial;
+    font-size: 1.1rem;
+}
+.contenedor1 .caja.otra form .fila .entrada{
+    outline: none;
+    border: 1px solid rgb(2, 2, 51);
+    padding: 2px;
+    font-size: 1.5rem;
+    color: rgb(3, 3, 49);
+    border-radius: 5px;
+}
+.contenedor1 .caja.otra form .area-boton{
+    width: 100%;
+    height: 30%;
+    display: flex;
+}
+.contenedor1 .caja.otra form .area-boton .boton{
+    margin: auto;
+    padding: 2px;
+    font-size: 1.5rem;
+    border: 2px solid rgb(2, 2, 51);
+    background: rgb(227, 227, 252);
+    border-radius: 5px;
+    color: rgb(2, 2, 19);
+}
+.contenedor1 .caja.otra form .area-boton .boton:hover{
+    background: rgb(2, 2, 51);
+    color:rgb(227, 227, 252);
+    transition: all 0.3s ease;
+}

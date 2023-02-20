@@ -2,10 +2,10 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import { useCont } from "../contexto";
 import { Cabeza } from "./cabeza";
-import { agregar } from "./mandar";
+import { agregar, eliminar } from "./mandar";
 
 function Listas(){
-    const {datos, busc, setBusc, entrar, objeto}=useCont();
+    const {datos, busc, setBusc, entrar, objeto, error}=useCont();
     const [escribir, setEscribir]=React.useState('');
     const mandar=(e)=>{
         e.preventDefault();
@@ -39,7 +39,7 @@ function Listas(){
                     value={busc} 
                     onChange={(e)=>setBusc(e.target.value)}/>
                 </div>
-                {datos.map(elem=>(
+                {error.estado?<p>No se encontraron elementos</p>:datos.map(elem=>(
                     <Fila 
                     key={elem.id}
                     lista={elem.lista}
@@ -60,7 +60,7 @@ function Fila({lista, num, objeto}){
     return(
         <div className="fila">
             <p>{num}.- {lista}</p>
-            {objeto.superUsuario && <button className="boton">X</button>}
+            {objeto.superUsuario && <button className="boton" onClick={()=>eliminar(num)}>X</button>}
         </div>
     );
 }

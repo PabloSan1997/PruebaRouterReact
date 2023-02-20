@@ -5,6 +5,7 @@ const Contexto = React.createContext();
 
 function useLeer(entrar) {
   const [datoss, setDatoss] = React.useState([]);
+  const [error, setError]=React.useState({estado:false, message:""});
   React.useEffect(() => {
     if (entrar) {
       (async () => {
@@ -17,13 +18,14 @@ function useLeer(entrar) {
             throw { message: "No se obtuvieron datos" };
           }
           setDatoss(mensaje);
+          setError({message:"", estado:false});
         } catch (error) {
-          alert(error.message);
+          setError({message:error.message, estado:true});
         }
       })();
     }
   }, [entrar]);
-  return { datoss };
+  return { datoss, error };
 }
 function Provedor({ children }) {
   const [busc, setBusc] = React.useState("");
@@ -32,7 +34,7 @@ function Provedor({ children }) {
   const [nose, setNose] = React.useState(false);
   const [entrada1, setEtrada1] = React.useState("");
   const [entrada2, setEtrada2] = React.useState("");
-  const { datoss } = useLeer(entrar);
+  const { datoss, error } = useLeer(entrar);
   console.log(objeto);
   let datos = [];
   if (busc === "") {
@@ -93,7 +95,8 @@ function Provedor({ children }) {
         setEtrada1,
         entrada2,
         setEtrada2,
-        guardarv
+        guardarv,
+        error
       }}
     >
       {children}
