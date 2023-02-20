@@ -7,6 +7,9 @@ function useGuardar(){
             if(!localStorage.entrar){
                 localStorage.entrar='no';
             }
+            if(!localStorage.infor){
+                localStorage.infor=JSON.stringify({usuario:false, superUsuario:false, nombre:""});
+            }
             setEntrar(localStorage.entrar==='si');
         }
         ,[]);
@@ -14,7 +17,13 @@ function useGuardar(){
             localStorage.entrar=nom;
             setEntrar(nom==='si');
         }
-        return {entrar, setGuardar};
+        const guardarv=(mira)=>{
+            localStorage.infor=JSON.stringify(mira);
+        }
+        const generar = ()=>{
+            return JSON.parse(localStorage.infor);
+        }
+        return {entrar, setGuardar, guardarv, generar};
 }
 
 export{useGuardar}

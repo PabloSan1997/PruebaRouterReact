@@ -9,7 +9,9 @@ class BuscarServicio{
         if(indice===-1){
             throw boom.notAcceptable('Contraseña y/o usuario incorrecto');
         }
-        return this.usuarios[indice];
+        let hola = this.usuarios[indice];
+        delete hola.contra
+        return hola;
     }
 }
 module.exports={BuscarServicio}
